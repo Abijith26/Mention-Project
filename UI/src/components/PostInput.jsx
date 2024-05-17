@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import MentionSelect from "./MentionSelect";
 import DisplayPost from "./DisplayPost";
 
@@ -8,31 +8,17 @@ export default function PostInput() {
   const [isAtSymbol, setIsAtSymbol] = useState(false);
   const [taggedUser, setTaggedUser] = useState(null);
   const [postTaggedUser, setPostTaggedUser] = useState(null);
-
   const [cursorPosition, setCursorPosition] = useState({ left: 0 });
-  const textareaRef = useRef(null);
 
   function handleKeyUp(e) {
-    // const { clientX, clientY } = e;
-    // const boundingBox = textareaRef.current.getBoundingClientRect();
-    // let x = clientX - boundingBox.left;
-    // let y = clientY - boundingBox.top;
-    // console.log(x,y);
-    // setCursorPosition({left:`${clientX}`,top:`${clientY}` });
-
     if (!taggedUser)
       setCursorPosition({
         left: `${e.target.selectionEnd}`,
       });
   }
 
-  // const updateCursorPosition = (event) => {
-
-  //   // setCursorPosition({top:event.target.selectionStart,end:event.target.selectionEnd});
-  //   setCursorPosition({top:`${event.clientX}`,end:`${event.clientY}`});
-  // };
-
   useEffect(() => {
+    // Checking for the '@' input
     if (message.includes("@")) {
       setIsAtSymbol(true);
     } else {
@@ -40,10 +26,7 @@ export default function PostInput() {
     }
   }, [message]);
 
-  console.log(message);
-  console.log(taggedUser);
-  // console.log(cursorPosition);
-
+  // To Handle Post Event
   function PostSubmit() {
     setPostMessage(message);
     setPostTaggedUser(taggedUser);
@@ -58,7 +41,6 @@ export default function PostInput() {
           rows={4}
           cols={60}
           placeholder={taggedUser ? "" : "Create a post ..."}
-          ref={textareaRef}
           className="resize-none rounded-md text-gray-600 outline-none p-3 "
           value={message}
           onChange={(e) => setMessage(e.target.value)}
