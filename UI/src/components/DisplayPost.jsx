@@ -11,6 +11,7 @@ export default function DisplayPost({ postMessage, taggedUser }) {
       </p>
 
       <hr className="border-gray-700 mt-10"></hr>
+
       <div className="mt-2 flex p-4 gap-5">
         <span className="bg-red-600  rounded-full w-9 h-9 text-center font-semibold p-1 text-black">
           {PostingUser.name.at(0)}

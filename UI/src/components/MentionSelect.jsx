@@ -1,24 +1,7 @@
 import { useState } from "react";
 
 // Sample Users Array
-const users = [
-  "Tommy",
-  "Steve",
-  "Danny",
-  "Alex",
-  "Jones",
-  "Charlie",
-  "Alexis",
-  "Cherie",
-  "Reagan",
-  "Lacy",
-  "Angela",
-  "Codi",
-  "Gia",
-  "Gianna",
-  "Luna",
-  "Dee",
-];
+const users = ["Tommy", "Steve", "Danny", "Alex", "Jones", "Charlie", "Alexis"];
 
 export default function MentionSelect({
   setTaggedUser,
@@ -45,7 +28,6 @@ export default function MentionSelect({
   function HandleTag(e) {
     setMessage((current) => current.split("@")[0]);
     setTaggedUser(e.target.value);
-
     setIsAtSymbol(false);
   }
 
