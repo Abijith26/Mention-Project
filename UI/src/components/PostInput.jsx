@@ -9,7 +9,6 @@ export default function PostInput() {
   const [taggedUsers, setTaggedUsers] = useState(null);
   const [postTaggedUser, setPostTaggedUser] = useState(null);
   const [count, setCount] = useState(1);
-  // const [cursorPosition, setCursorPosition] = useState({ left: 0 });
 
   function handleKeyUp(e) {
     if (!taggedUsers)
@@ -27,68 +26,6 @@ export default function PostInput() {
   const [spanPos1, setSpanPos1] = useState({ top: 0, left: 0, width: 0 });
 
   console.log(message);
-
-  // New Function
-  // const handleInputChange = (event) => {
-  //   // set to initial
-  //   setDropdownPosition({ top: 0, left: 0 });
-
-  //   // fetch value and set
-  //   const { value } = event.target;
-  //   setMessage(value);
-
-  //   // set value to span to get width
-  //   const measureSpan = document.getElementById("measure");
-  //   measureSpan.textContent = value;
-  //   const valueWidth = measureSpan.offsetWidth;
-
-  //   // find the input rectref and '@' index
-  //   const inputRect = inputRef.current.getBoundingClientRect();
-  //   setSpanPos({ top: inputRect.top, left: inputRect.left });
-  //   // setSpanPos1({ width: inputRect.width });
-
-  //   // const dropdownRect = dropdownRef.current.getBoundingClientRect();
-  //   const atIndex = value.lastIndexOf("@");
-  //   console.log("at index outside: ", atIndex);
-
-  //   // if there is an '@' entered
-  //   if (atIndex !== -1) {
-  //     // fetch the '@' coordinates
-  //     const atPosition = atPositionRef.current.getBoundingClientRect();
-  //     // const atPosition1 = atPositionRef1.current.getBoundingClientRect();
-
-  //     var dropdownTop, dropdownLeft;
-  //     if (value.charAt(value.length - 1) === "@") {
-  //       dropdownTop = atPosition.height;
-  //       dropdownLeft =
-  //         valueWidth - inputRect < 0
-  //           ? inputRect - valueWidth
-  //           : valueWidth - inputRect;
-  //     }
-  //     setDropdownPosition({ top: dropdownTop, left: dropdownLeft });
-
-  //     console.log("value.length: ", valueWidth);
-  //     console.log("input rect: ", inputRect);
-  //     console.log("at position rect: ", atPosition);
-  //     console.log("dropdownLeft value: ", dropdownLeft);
-  //     console.log("dropdown position: ", dropdownPosition);
-
-  //     if (dropdownLeft > inputRect.right) {
-  //       console.log("inside else > : ");
-  //       // dropdownTop = atPosition.top + atPosition.height;
-  //       // multiply by * 2 for second line
-  //       dropdownTop = atPosition.height * 2 + inputRect.top + 10;
-  //       dropdownLeft =
-  //         inputRect.left + (valueWidth - inputRect.width) + atPosition.y;
-  //     }
-
-  //     setDropdownPosition({ top: dropdownTop, left: dropdownLeft });
-
-  //     setIsAtSymbol(true);
-  //   } else {
-  //     setIsAtSymbol(false);
-  //   }
-  // };
 
   const handleInputChange = (event) => {
     // set to initial
@@ -148,14 +85,6 @@ export default function PostInput() {
       setIsAtSymbol(false);
     }
   };
-  // useEffect(() => {
-  //   // Checking for the '@' input
-  //   if (message.includes("@")) {
-  //     setIsAtSymbol(true);
-  //   } else {
-  //     setIsAtSymbol(false);
-  //   }
-  // }, [message]);
 
   // To Handle Post Event
   function PostSubmit() {
@@ -211,14 +140,6 @@ export default function PostInput() {
             width: spanPos1.width,
           }}
         ></span>
-        {/* {taggedUsers && (
-          <span
-            className="text-fuchsia-500 font-semibold absolute top-3"
-            style={{ left: `${cursorPosition.left}em` }}
-          >
-            {taggedUsers}
-          </span>
-        )} */}
       </div>
 
       <div className="relative left-60 mb-10 ">
