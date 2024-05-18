@@ -23,8 +23,8 @@ export default function DisplayPost({ postMessage, taggedUsers }) {
   console.log(messageArray);
   return (
     <div className="text-slate-500  p-7 bg-slate-300  rounded-md">
-      <p>
-        <span>{messageArray[0]}</span>
+      <p className="break-all">
+        <span id="span1">{messageArray[0]}</span>
         {taggedUsers && (
           <span className="text-fuchsia-500 font-bold">{taggedUsers}</span>
         )}

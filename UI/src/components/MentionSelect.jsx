@@ -31,13 +31,6 @@ export default function MentionSelect({
     setIsAtSymbol(false);
   }
 
-  // Going to change
-  function HandleTag(e) {
-    setMessage((current) => current.split("@")[0].concat(e.target.value));
-    setTaggedUsers((current) => [e]);
-    setIsAtSymbol(false);
-  }
-
   // Code
   // function HandleTag(e) {
   //   const taggedUser = e.target.value;
@@ -64,8 +57,11 @@ export default function MentionSelect({
 
   return (
     <div
-      className="w-auto h-auto max-h-48 border-solid border-2 border-black absolute  z-20 top-1 p-2 bg-white overflow-y-auto overflow-x-hidden"
-      style={{ left: `${cursorPosition.left}rem` }}
+      className="w-auto h-auto max-h-48 border-solid border-2 border-black absolute  z-20 p-2 bg-white overflow-y-auto overflow-x-hidden"
+      style={{
+        left: `${cursorPosition.left}px`,
+        top: `${cursorPosition.top}px`,
+      }}
     >
       <input
         type="text"
