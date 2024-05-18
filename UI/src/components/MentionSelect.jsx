@@ -31,30 +31,6 @@ export default function MentionSelect({
     setIsAtSymbol(false);
   }
 
-  // Code
-  // function HandleTag(e) {
-  //   const taggedUser = e.target.value;
-  //   setTaggedUsers(taggedUser);
-  //   setIsAtSymbol(false);
-
-  //   // Update the message state by concatenating the tagged user value
-  //   setMessage((current) => {
-  //     // Find the position of the '@' symbol
-  //     const atSymbolIndex = current.lastIndexOf("@");
-  //     if (atSymbolIndex !== -1) {
-  //       // Concatenate the message before the '@' symbol with the tagged user and the message after the '@' symbol
-  //       return (
-  //         current.slice(0, atSymbolIndex + 1) +
-  //         taggedUser +
-  //         current.slice(atSymbolIndex + 1)
-  //       );
-  //     }
-  //     return current + taggedUser;
-  //   });
-
-  //   setIsAtSymbol(false);
-  // }
-
   return (
     <div
       className="w-auto h-auto max-h-48 border-solid border-2 border-black absolute  z-20 p-2 bg-white overflow-y-auto overflow-x-hidden"
