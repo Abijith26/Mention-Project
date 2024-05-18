@@ -4,7 +4,7 @@ import { useState } from "react";
 const users = ["Tommy", "Steve", "Danny", "Alex", "Jones", "Charlie", "Alexis"];
 
 export default function MentionSelect({
-  setTaggedUser,
+  setTaggedUsers,
   setIsAtSymbol,
   cursorPosition,
   setMessage,
@@ -26,10 +26,41 @@ export default function MentionSelect({
   };
 
   function HandleTag(e) {
-    setMessage((current) => current.split("@")[0]);
-    setTaggedUser(e.target.value);
+    setMessage((current) => current.split("@")[0].concat(e.target.value));
+    setTaggedUsers(e.target.value);
     setIsAtSymbol(false);
   }
+
+  // Going to change
+  function HandleTag(e) {
+    setMessage((current) => current.split("@")[0].concat(e.target.value));
+    setTaggedUsers((current) => [e]);
+    setIsAtSymbol(false);
+  }
+
+  // Code
+  // function HandleTag(e) {
+  //   const taggedUser = e.target.value;
+  //   setTaggedUsers(taggedUser);
+  //   setIsAtSymbol(false);
+
+  //   // Update the message state by concatenating the tagged user value
+  //   setMessage((current) => {
+  //     // Find the position of the '@' symbol
+  //     const atSymbolIndex = current.lastIndexOf("@");
+  //     if (atSymbolIndex !== -1) {
+  //       // Concatenate the message before the '@' symbol with the tagged user and the message after the '@' symbol
+  //       return (
+  //         current.slice(0, atSymbolIndex + 1) +
+  //         taggedUser +
+  //         current.slice(atSymbolIndex + 1)
+  //       );
+  //     }
+  //     return current + taggedUser;
+  //   });
+
+  //   setIsAtSymbol(false);
+  // }
 
   return (
     <div

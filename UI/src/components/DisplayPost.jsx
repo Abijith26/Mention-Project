@@ -1,13 +1,34 @@
+import { useState, useEffect } from "react";
+
 const PostingUser = { name: "Abijith Murugan" };
 
-export default function DisplayPost({ postMessage, taggedUser }) {
+export default function DisplayPost({ postMessage, taggedUsers }) {
+  // To split the message and store
+  const [messageArray, setMessageArray] = useState([]);
+
+  useEffect(() => {
+    if (taggedUsers && postMessage.includes(taggedUsers)) {
+      const taggedUserIndex = postMessage.indexOf(taggedUsers);
+      const taggedUserLength = taggedUsers.length;
+      const messagePreviousToTaggedUser = postMessage.slice(0, taggedUserIndex);
+      const messageNextToTaggedUser = postMessage.slice(
+        taggedUserIndex + taggedUserLength
+      );
+      setMessageArray([messagePreviousToTaggedUser, messageNextToTaggedUser]);
+    } else {
+      setMessageArray([postMessage]);
+    }
+  }, [postMessage, taggedUsers]);
+
+  console.log(messageArray);
   return (
     <div className="text-slate-500  p-7 bg-slate-300  rounded-md">
       <p>
-        {postMessage}{" "}
-        {taggedUser && (
-          <span className="text-fuchsia-500 font-bold">{taggedUser}</span>
+        <span>{messageArray[0]}</span>
+        {taggedUsers && (
+          <span className="text-fuchsia-500 font-bold">{taggedUsers}</span>
         )}
+        <span>{messageArray[1]}</span>
       </p>
 
       <hr className="border-gray-700 mt-10"></hr>
