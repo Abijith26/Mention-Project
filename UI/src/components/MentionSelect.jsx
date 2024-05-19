@@ -41,7 +41,7 @@ export default function MentionSelect({
     >
       <input
         type="text"
-        className="rounded-md p-1"
+        className="rounded-md p-1 border-2 border-neutral-800"
         onChange={handleInputChange}
       />
       {filteredUsers.length > 0 && (
